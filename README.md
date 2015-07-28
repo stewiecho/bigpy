@@ -26,6 +26,11 @@
 ##### ctrl + m b (insert new cell)
 
 ```python
+## Default Import
+from pandas import Series, DataFrame
+import pandas as pd
+import numpy as np
+
 ## python 3 의 기본 문자열은 unicode
 a = '한글' # python 2
 a = u'한글' # python 3 의 기본
