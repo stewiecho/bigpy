@@ -1,11 +1,14 @@
 
 # Python for Data Analysis
 
+
 ## 강사
 - seongjoo@codebasic.co
 - @LeeSeongjoo
-- [github](https://github.com/lseongjoo/bigpy)
+- https://github.com/lseongjoo/bigpy
+- https://github.com/lseongjoo/learn-python
 - [책] 데이터/수치 분석을 위한 파이썬 라이브러리 Scipy와 Numpy
+- [python 2 와 unicode](http://www.slideshare.net/LeeSeongjoo/2-17395073?qid=11e1cabf-dda5-4f5d-9592-9157059653b3&v=qf1&b=&from_search=3)
 
 ## Download
 - [Anaconda 2.3](http://continuum.io/)
@@ -16,11 +19,11 @@
 - exe 파일 대신 ipython notebook 을 쓰는 이유는 다른 패키지에서도 동일한 방법으로 실행가능하다.
 - enthought Canopy (Numpy와 scipy를 만든 사람이 만든회사)
 	- 독자적인 platform을 사용하는 경향이 있다 (그래서 anaconda 사용)
-- Scikit-lean, Scikit-Image
+- Scikit-learn, Scikit-Image
 
 ## Basic
 
-- ctrl + m b (insert new cell)
+##### ctrl + m b (insert new cell)
 
 ```python
 ## python 3 의 기본 문자열은 unicode
@@ -30,10 +33,17 @@ a = u'한글' # python 3 의 기본
 ## Python 2 에서 python 3의 print 사용
 from __future__ import print_function
 ```
+
+##### Help 보는법
+```python
+import pandas as pd
+pd.read_csv?
+```
+
 	
 
 
-#### BIF (Built-in Function)
+##### BIF (Built-in Function)
 ```python
 ## for 중복도 가능 + filtering
 [a*b for a in [1,2,3] for b in [4,5,6,7] if b > 6]
@@ -90,5 +100,27 @@ mean_ratings = data.pivot_table('rating', index='title', columns='gender', aggfu
 ## mean_ratings = data.pivot_table('rating', index='title', columns='gender', aggfunc=my_func) 도 가능
 ```
 
+#### Dataframe 혹은 Series의 []은 선택의 표시
+```python
+# panda에만 있는 문법으로 obj가 0이 넘는 boolean filter가 만들어지고 그것을 통해 선택 됨
+obj[obj>0] 
+# DataFrame의 index 접근은
+df.ix(XXXX)
+# Series는 0시작 숫자 기반의 index로도 접근 가능 
+sr[0]
+sr[XXXX]
+```
 
-
+#### column 의 boolean filter를 사용하는 경우
+````python
+p_data = {'James' : {u'국어' : 90, u'수학' : 80, u'과학' : 85},
+         'Allan' : {u'국어' : 78, u'수학' : 92, u'과학' : 95},
+         'Mindy' : {u'국어' : 66, u'수학' : 79, u'과학' : 99}}
+p_frame = DataFrame(p_data, index=[u'국어', u'수학', u'과학'])
+column_filter = p_frame.ix[u'수학'] >= 80
+p_frame.ix[:, column_filter]
+```
+#### index의 boolean filter를 사용하는 경우
+````python
+b
+```
