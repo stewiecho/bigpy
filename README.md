@@ -124,3 +124,20 @@ p_frame.ix[:, column_filter]
 ````python
 b
 ```
+
+#### ipython debug
+```python
+%debug
+
+up
+
+
+%run -d pydata/ch03/ipython_bug.py
+c # 또는 continue
+step
+next
+list # 앞뒤로 5줄씩 보여주는 명령어
+b 9 # 모듈에 9 line에 breakpoint 를 삽입한다
+# Breakpoint 2 at c:\users\sds\documents\bigpy\pydata\ch03\ipython_bug.py:9
+b # 전체 breakpoint를 본다
+```
